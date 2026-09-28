@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GoldView Dashboard</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, "Segoe UI", sans-serif; background: #f7f8fa; color: #1f2328; }
+    header { background: #1f2328; color: #fff; padding: 16px 32px; display: flex; align-items: center; gap: 12px; }
+    header h1 { font-size: 20px; }
+    header span { font-size: 12px; color: #aaa; }
+    .container { max-width: 1100px; margin: 32px auto; padding: 0 24px; }
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 32px; }
+    .stat { background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; padding: 20px; text-align: center; }
+    .stat-value { font-size: 32px; font-weight: 700; color: #3b82d4; }
+    .stat-label { font-size: 12px; color: #57606a; margin-top: 4px; }
+    .section { background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; padding: 20px; margin-bottom: 24px; }
+    .section h2 { font-size: 15px; font-weight: 600; margin-bottom: 14px; border-bottom: 1px solid #e5e7eb; padding-bottom: 10px; }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    th { background: #f7f8fa; text-align: left; padding: 8px 10px; border-bottom: 1px solid #e5e7eb; font-weight: 600; color: #57606a; white-space: nowrap; }
+    td { padding: 8px 10px; border-bottom: 1px solid #f0f0f0; }
+    tr:last-child td { border-bottom: none; }
+    .badge { display: inline-block; font-size: 11px; padding: 2px 7px; border-radius: 10px; font-weight: 600; }
+    .badge-yes { background: #dcfce7; color: #166534; }
+    .badge-no  { background: #f1f5f9; color: #94a3b8; }
+    .badge-email { background: #dbeafe; color: #1d4ed8; }
+    .badge-fuzzy { background: #fef9c3; color: #854d0e; }
+    .loading { color: #57606a; font-size: 14px; padding: 20px 0; }
+    .overflow { overflow-x: auto; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>GoldView</h1>
+    <span>Golden Customer Record Dashboard</span>
+  </header>
+
+  <div class="container">
+    <div class="stats" id="stats">
+      <div class="stat"><div class="stat-value">—</div><div class="stat-label">Raw Records</div></div>
+      <div class="stat"><div class="stat-value">—</div><div class="stat-label">Golden Records</div></div>
+      <div class="stat"><div class="stat-value">—</div><div class="stat-label">Duplicates Merged</div></div>
+      <div class="stat"><div class="stat-value">3</div><div class="stat-label">Source Systems</div></div>
+    </div>
+
+    <div class="section">
+      <h2>Golden Customer Records</h2>
+      <div class="overflow"><table id="golden-table"><tr><td class="loading">Loading...</td></tr></table></div>
+    </div>
+
+    <div class="section">
+      <h2>Duplicate Merge Log</h2>
+      <div class="overflow"><table id="dupe-table"><tr><td class="loading">Loading...</td></tr></table></div>
+    </div>
+  </div>
+
+  <script type="module">
+    const API = 'http://localhost:3000/api/golden';
+
+    async function load() {
+      const res  = await fetch(API);
+      const data = await res.json();
+      const { summary, golden_customers, duplicate_log } = data;
+
+      // Stats
+      const statsEl = document.getElementById('stats');
+      statsEl.innerHTML = `
+        <div class="stat"><div class="stat-value">${summary.total_raw_records}</div><div class="stat-label">Raw Records</div></div>
+        <div class="stat"><div class="stat-value">${summary.golden_records}</div><div class="stat-label">Golden Records</div></div>
+        <div class="stat"><div class="stat-value">${summary.duplicates_merged}</div><div class="stat-label">Duplicates Merged</div></div>
+        <div class="stat"><div class="stat-value">3</div><div class="stat-label">Source Systems</div></div>
+      `;
+
+      // Golden table
+      const gt = document.getElementById('golden-table');
+      gt.innerHTML = `
+        <thead><tr>
+          <th>Golden ID</th><th>Name</th><th>DOB</th><th>Email</th>
+          <th>City</th><th>Core Banking</th><th>Credit Card</th><th>Mortgage</th>
+          <th>Match Method</th><th>Confidence</th>
+        </tr></thead>
+        <tbody>${golden_customers.map(r => `<tr>
+          <td>${r.golden_id}</td>
+          <td>${r.first_name} ${r.last_name}</td>
+          <td>${r.dob}</td>
+          <td>${r.email}</td>
+          <td>${r.city}, ${r.state}</td>
+          <td><span class="badge ${r.has_core_banking === 'True' ? 'badge-yes' : 'badge-no'}">${r.has_core_banking === 'True' ? 'Yes' : 'No'}</span></td>
+          <td><span class="badge ${r.has_credit_card === 'True' ? 'badge-yes' : 'badge-no'}">${r.has_credit_card === 'True' ? 'Yes' : 'No'}</span></td>
+          <td><span class="badge ${r.has_mortgage === 'True' ? 'badge-yes' : 'badge-no'}">${r.has_mortgage === 'True' ? 'Yes' : 'No'}</span></td>
+          <td><span class="badge ${r.match_method === 'email_match' ? 'badge-email' : 'badge-fuzzy'}">${r.match_method}</span></td>
+          <td>${parseFloat(r.confidence_score).toFixed(2)}</td>
+        </tr>`).join('')}</tbody>
+      `;
+
+      // Dupe table
+      const dt = document.getElementById('dupe-table');
+      dt.innerHTML = `
+        <thead><tr>
+          <th>Source</th><th>Source ID</th><th>Matched Golden ID</th><th>Match Method</th><th>Confidence</th>
+        </tr></thead>
+        <tbody>${duplicate_log.map(r => `<tr>
+          <td>${r.incoming_source}</td>
+          <td>${r.incoming_source_id}</td>
+          <td>${r.matched_golden_id}</td>
+          <td><span class="badge ${r.match_method === 'email_match' ? 'badge-email' : 'badge-fuzzy'}">${r.match_method}</span></td>
+          <td>${parseFloat(r.confidence_score).toFixed(2)}</td>
+        </tr>`).join('')}</tbody>
+      `;
+    }
+
+    load().catch(err => {
+      document.getElementById('golden-table').innerHTML = `<tr><td style="color:red">Error: ${err.message}. Make sure the backend is running on port 3000.</td></tr>`;
+    });
+  </script>
+</body>
+</html>
