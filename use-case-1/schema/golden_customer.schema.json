@@ -1,0 +1,102 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "GoldenCustomerRecord",
+  "description": "Canonical Golden Customer schema consolidating core banking, credit card, and mortgage source systems.",
+  "type": "object",
+  "required": ["golden_id", "first_name", "last_name", "dob", "source_ids"],
+  "properties": {
+    "golden_id": {
+      "type": "string",
+      "description": "Unique surrogate key assigned during MDM consolidation (e.g. GC-00001)"
+    },
+    "first_name": {
+      "type": "string",
+      "description": "Canonical first name (title-cased, trimmed)"
+    },
+    "last_name": {
+      "type": "string",
+      "description": "Canonical last name (title-cased, trimmed)"
+    },
+    "dob": {
+      "type": "string",
+      "format": "date",
+      "description": "Date of birth in ISO 8601 format (YYYY-MM-DD)"
+    },
+    "gender": {
+      "type": ["string", "null"],
+      "enum": ["M", "F", "Other", null],
+      "description": "Normalised gender code"
+    },
+    "email": {
+      "type": ["string", "null"],
+      "format": "email",
+      "description": "Primary contact email (lowercased)"
+    },
+    "phone": {
+      "type": ["string", "null"],
+      "description": "Normalised phone number (digits only, E.164-ready)"
+    },
+    "address": {
+      "type": ["string", "null"],
+      "description": "Street address"
+    },
+    "city": {
+      "type": ["string", "null"]
+    },
+    "state": {
+      "type": ["string", "null"],
+      "description": "Two-letter US state code"
+    },
+    "zip": {
+      "type": ["string", "null"],
+      "description": "Postal/ZIP code"
+    },
+    "country": {
+      "type": ["string", "null"],
+      "description": "ISO 3166-1 alpha-3 country code (e.g. USA)"
+    },
+    "source_ids": {
+      "type": "object",
+      "description": "Original IDs from each source system for traceability",
+      "properties": {
+        "core_banking_id": { "type": ["string", "null"] },
+        "credit_card_id":  { "type": ["string", "null"] },
+        "mortgage_id":     { "type": ["string", "null"] }
+      }
+    },
+    "products": {
+      "type": "object",
+      "description": "Product flags indicating which systems the customer appears in",
+      "properties": {
+        "has_core_banking": { "type": "boolean" },
+        "has_credit_card":  { "type": "boolean" },
+        "has_mortgage":     { "type": "boolean" }
+      }
+    },
+    "match_method": {
+      "type": "string",
+      "enum": ["exact_id", "email_match", "fuzzy_name_dob", "manual"],
+      "description": "How this golden record was matched/consolidated"
+    },
+    "confidence_score": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Match confidence (1.0 = exact, lower = fuzzy)"
+    },
+    "is_duplicate_flag": {
+      "type": "boolean",
+      "description": "True if this record was identified as a duplicate and merged"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when this golden record was created"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp of last update"
+    }
+  }
+}

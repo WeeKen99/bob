@@ -1,0 +1,21 @@
+mortgage_ref,borrower_fname,borrower_lname,birth_date,borrower_email,borrower_phone,property_address,property_city,property_state,property_zip,loan_amount,interest_rate,origination_date,loan_status
+MG-2001,John,Smith,1985-03-12,john.smith@email.com,15550101,12 Maple St,New York,NY,10001,450000,3.75,2021-05-10,Active
+MG-2002,Robert,Johnson,1978-11-05,rob.johnson@email.com,15550103,78 Pine Rd,Chicago,IL,60601,320000,4.10,2019-08-22,Active
+MG-2003,Emily,Davis,1992-04-18,emily.davis@email.com,15550104,23 Elm St,Houston,TX,77001,275000,3.90,2022-01-15,Active
+MG-2004,David,Martinez,1970-06-22,d.martinez@email.com,15550107,101 Walnut Dr,San Antonio,TX,78201,510000,3.50,2020-11-03,Active
+MG-2005,Lisa,Anderson,1988-12-15,lisa.anderson@email.com,15550108,67 Spruce Way,San Diego,CA,92101,620000,3.25,2021-09-18,Active
+MG-2006,James,Taylor,1975-08-03,james.t@email.com,15550109,34 Willow Ct,Dallas,TX,75201,390000,4.25,2018-06-07,Closed
+MG-2007,William,Jackson,1980-02-14,will.jackson@email.com,15550112,19 Poplar Ave,Austin,TX,73301,480000,3.65,2020-03-29,Active
+MG-2008,Charles,Harris,1991-07-16,c.harris@email.com,15550114,72 Hickory Rd,Fort Worth,TX,76101,310000,4.00,2022-07-14,Active
+MG-2009,Thomas,Lee,1982-06-09,thomas.lee@email.com,15550118,93 Sequoia Way,San Francisco,CA,94101,850000,3.15,2021-02-25,Active
+MG-2010,Daniel,Robinson,1989-04-06,dan.robinson@email.com,15550120,50 Cypress Pl,Denver,CO,80201,365000,3.80,2020-10-11,Active
+MG-2011,Johnathan,Smith,1985-03-12,johnsmith85@gmail.com,15550101,12 Maple Street,New York,NY,10001,450000,3.75,2021-05-10,Active
+MG-2012,Nancy,Clark,1971-01-31,nancy.clark@email.com,15550119,27 Juniper Ct,Seattle,WA,98101,540000,3.45,2019-04-16,Active
+MG-2013,Susan,Martin,1987-03-28,susan.martin@email.com,15550115,15 Chestnut Blvd,Columbus,OH,43085,295000,4.05,2021-12-01,Active
+MG-2014,Karen,Miller,1994-12-22,karen.miller@email.com,15550117,61 Redwood Ln,Indianapolis,IN,46201,255000,3.95,2023-03-08,Active
+MG-2015,Joseph,Garcia,1976-09-04,joe.garcia@email.com,15550116,38 Sycamore Dr,Charlotte,NC,28201,415000,3.70,2019-09-22,Active
+MG-2016,Barbara,White,1968-10-11,barb.white@email.com,15550113,44 Magnolia St,Jacksonville,FL,32099,330000,4.15,2018-02-13,Closed
+MG-2017,Michael,Brown,1983-09-30,m.brown@email.com,15550105,90 Cedar Blvd,Phoenix,AZ,85001,490000,3.55,2020-07-05,Active
+MG-2018,Patricia,Thomas,1993-05-29,p.thomas@email.com,15550110,88 Ash Pl,San Jose,CA,95101,710000,3.20,2022-11-19,Active
+MG-2019,Jane,Doe,1990-07-24,jane.doe@email.com,15550102,45 Oak Ave,Los Angeles,CA,90001,580000,3.35,2021-06-30,Active
+MG-2020,Sarah,Wilson,1995-01-07,sarah.w@email.com,15550106,55 Birch Ln,Philadelphia,PA,19101,340000,3.85,2022-09-04,Active

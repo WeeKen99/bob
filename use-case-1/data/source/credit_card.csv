@@ -1,0 +1,21 @@
+card_id,account_holder_first,account_holder_last,date_of_birth,sex,contact_email,mobile,street,city,province,postal_code,nation,card_type,credit_limit,opened_date
+CC-10045,John,Smith,12/03/1985,Male,john.smith@email.com,5550101,12 Maple St,New York,NY,10001,United States,VISA,15000,15/02/2020
+CC-10046,Jane,Doe,24/07/1990,Female,jane.doe@email.com,5550102,45 Oak Avenue,Los Angeles,CA,90001,United States,Mastercard,8000,10/05/2021
+CC-10047,Emily,Davis,18/04/1992,Female,emily.davis@email.com,5550104,23 Elm Street,Houston,TX,77001,United States,AMEX,12000,22/11/2020
+CC-10048,Michael,Brown,30/09/1983,Male,m.brown@email.com,5550105,90 Cedar Blvd,Phoenix,AZ,85001,United States,VISA,20000,08/03/2019
+CC-10049,Sarah,Wilson,07/01/1995,Female,sarah.w@email.com,5550106,55 Birch Lane,Philadelphia,PA,19101,United States,Mastercard,6000,30/06/2022
+CC-10050,David,Martinez,22/06/1970,Male,d.martinez@email.com,5550107,101 Walnut Drive,San Antonio,TX,78201,United States,VISA,25000,14/09/2018
+CC-10051,Lisa,Anderson,15/12/1988,Female,lisa.anderson@email.com,5550108,67 Spruce Way,San Diego,CA,92101,United States,AMEX,18000,01/01/2021
+CC-10052,William,Jackson,14/02/1980,Male,will.jackson@email.com,5550112,19 Poplar Ave,Austin,TX,73301,United States,Mastercard,10000,17/07/2019
+CC-10053,Barbara,White,11/10/1968,Female,barb.white@email.com,5550113,44 Magnolia St,Jacksonville,FL,32099,United States,VISA,9000,05/04/2017
+CC-10054,Charles,Harris,16/07/1991,Male,c.harris@email.com,5550114,72 Hickory Rd,Fort Worth,TX,76101,United States,Mastercard,11000,20/08/2022
+CC-10055,Karen,Miller,22/12/1994,Female,karen.miller@email.com,5550117,61 Redwood Ln,Indianapolis,IN,46201,United States,VISA,7000,12/02/2023
+CC-10056,Thomas,Lee,09/06/1982,Male,thomas.lee@email.com,5550118,93 Sequoia Way,San Francisco,CA,94101,United States,AMEX,22000,28/10/2020
+CC-10057,Nancy,Clark,31/01/1971,Female,nancy.clark@email.com,5550119,27 Juniper Ct,Seattle,WA,98101,United States,Mastercard,14000,03/03/2016
+CC-10058,Daniel,Robinson,06/04/1989,Male,dan.robinson@email.com,5550120,50 Cypress Pl,Denver,CO,80201,United States,VISA,16000,25/09/2021
+CC-10059,J.,Smith,12/03/1985,Male,johnsmith85@gmail.com,5550101,12 Maple Street,New York,NY,10001,United States,VISA,15000,20/01/2021
+CC-10060,Patricia,Thomas,29/05/1993,Female,p.thomas@email.com,5550110,88 Ash Place,San Jose,CA,95101,United States,Mastercard,9500,14/11/2022
+CC-10061,Joseph,Garcia,04/09/1976,Male,joe.garcia@email.com,5550116,38 Sycamore Dr,Charlotte,NC,28201,United States,AMEX,17000,06/06/2018
+CC-10062,Robert,Johnson,05/11/1978,Male,rob.johnson@email.com,5550103,78 Pine Rd,Chicago,IL,60601,United States,VISA,13000,19/12/2019
+CC-10063,Susan,Martin,28/03/1987,Female,susan.martin@email.com,5550115,15 Chestnut Blvd,Columbus,OH,43085,United States,Mastercard,8500,07/08/2020
+CC-10064,James,Taylor,03/08/1975,Male,james.t@email.com,5550109,34 Willow Ct,Dallas,TX,75201,United States,VISA,19000,22/04/2017
