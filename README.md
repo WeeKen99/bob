@@ -2,6 +2,9 @@
 
 > A hackathon project built with IBM Bob — consolidating fragmented banking customer data into a single trusted identity.
 
+<img width="1770" height="888" alt="image" src="https://github.com/user-attachments/assets/a7519018-377a-4bbc-8f6b-deeec5beeeae" />
+
+
 ## 📁 Project Structure
 
 ```
